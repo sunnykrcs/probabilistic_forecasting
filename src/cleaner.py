@@ -1,5 +1,11 @@
 import numpy as np
 
+def clean_google(df):
+    for c in df.columns:
+        if c == "spend":
+            df["spend"] = df["spend"] / 1_000_000
+    return df
+
 def clean(df):
 
     df = df.copy()

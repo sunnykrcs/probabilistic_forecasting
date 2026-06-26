@@ -2,7 +2,7 @@ from src.config import *
 
 from src.loader import load_csv
 from src.validator import validate
-from src.cleaner import clean
+from src.cleaner import clean,clean_google
 from src.merger import prepare, merge
 from src.aggregator import aggregate
 
@@ -12,6 +12,8 @@ def main():
     google = load_csv(GOOGLE_FILE)
     meta = load_csv(META_FILE)
     microsoft = load_csv(MS_FILE)
+
+    google = clean_google(google)
 
     validate(google, "Google")
     validate(meta, "Meta")
